@@ -1,0 +1,87 @@
+{% extends 'desarrollos/base.html' %}
+
+{% block content %}
+
+
+<div class="card">
+    <div class="card-header">Lista de proyectos</div>
+    <div class="card-body">
+        <a
+            name=""
+            id=""
+            class="btn btn-primary"
+            href={% url 'crear' %}
+            role="button"
+            >Agregar nuevo proyecto</a
+        >
+        
+        <hr>
+
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre del proyecto</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for D in proyectos %}
+
+                    <tr class="">
+                        <td scope="row">{{ D.id }}</td>
+                        <td>{{ D.titulo }}</td>
+                        <td>{{ D.estado }}</td>
+                        <td>{{ D.descripcion}}</td>
+                        <td> <a
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            href="{% url 'tickets' %}"
+                            role="button"
+                            >Tickets</a 
+                        >
+                        <a
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            href="{% url 'editar' D.id %}"
+                            role="button"
+                            >Editar</a
+                        >
+                        <a
+                            name=""
+                            id=""
+                            class="btn btn-primary"
+                            href="{% url 'eliminar' D.id %}"
+                            role="#"
+                            >Eliminar</a
+                        >
+                        
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+
+
+{% endblock %}
